@@ -1,5 +1,5 @@
 FROM lsiobase/alpine:latest
-LABEL maintainer="burmjeff"
+LABEL maintainer="ec911"
 
 RUN apk add --no-cache \
     ca-certificates \
@@ -10,8 +10,8 @@ RUN apk add --no-cache \
     perl-json \
     perl-lwp-protocol-https \
     perl-lwp-useragent-determined \
-    ffmpeg \
-    vlc \
+    #ffmpeg \
+    #vlc \
     curl
 
 RUN export PERL_MM_USE_DEFAULT=1 && \
@@ -19,10 +19,10 @@ RUN export PERL_MM_USE_DEFAULT=1 && \
 RUN mkdir /data && \
     mkdir /cache
 
-RUN wget https://github.com/xteve-project/xTeVe-Downloads/blob/master/xteve_linux_amd64.tar.gz?raw=true -O xteve_linux_amd64.tar.gz && \
-    tar zxfvp xteve_linux_amd64.tar.gz -C /app && \
-    rm -f xteve_linux_amd64.tar.gz && \
-    chmod +x /app/xteve
+#RUN wget https://github.com/xteve-project/xTeVe-Downloads/blob/master/xteve_linux_amd64.tar.gz?raw=true -O xteve_linux_amd64.tar.gz && \
+    #tar zxfvp xteve_linux_amd64.tar.gz -C /app && \
+    #rm -f xteve_linux_amd64.tar.gz && \
+    #chmod +x /app/xteve
 
 ADD zap2xml.pl /app/zap2xml.pl
 
@@ -31,7 +31,7 @@ ENV XTEVE_PORT=34400 \
 TVGUIDE_EPG=FALSE \
 ZAP2XML_USERNAME= \
 ZAP2XML_PASSWORD= \
-ZAP2XML_ARGS="-D -I -F -L -T -O -b" \
+ZAP2XML_ARGS="-I -F -L -T -O -b" \
 XMLTV_FILENAME=xmltv.xml \
 XML_UPDATE_INTERVAL=24
 
