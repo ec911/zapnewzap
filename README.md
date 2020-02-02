@@ -1,4 +1,4 @@
-# [xTeVe](https://xteve.de/) + [zap2xml](http://zap2xml.awardspace.info/) Docker Container
+# [zap2xml](http://zap2xml.awardspace.info/) Docker Container
 
 ### Docker usage
 ```
